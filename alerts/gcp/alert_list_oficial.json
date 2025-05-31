@@ -1,0 +1,124 @@
+{
+  "channelDescriptors": [
+    {
+      "type": "email",
+      "displayName": "Email",
+      "description": "A channel that sends notifications via email.",
+      "labels": [
+        {
+          "key": "email_address",
+          "description": "An address to send email."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/email",
+      "launchStage": "GA"
+    },
+    {
+      "type": "google_chat",
+      "displayName": "Google Chat",
+      "description": "A channel that publishes notifications to Google Chat spaces.",
+      "labels": [
+        {
+          "key": "space",
+          "description": "Google Chat space name, which is in the format 'spaces/{space}'"
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/google_chat",
+      "launchStage": "BETA"
+    },
+    {
+      "type": "pagerduty",
+      "displayName": "PagerDuty",
+      "description": "A channel that sends notifications via the third-party messaging service [PagerDuty](https://www.pagerduty.com/, \"PagerDuty website\"). This uses the \"Generic API\" service to push notifications",
+      "labels": [
+        {
+          "key": "service_key",
+          "description": "The service key for interacting with the service. This field is obfuscated by returning only a few characters of the key when fetched."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/pagerduty",
+      "launchStage": "BETA"
+    },
+    {
+      "type": "pubsub",
+      "displayName": "Cloud Pub/Sub",
+      "description": "A channel that publishes notifications to Cloud Pub/Sub topics.",
+      "labels": [
+        {
+          "key": "topic",
+          "description": "The PubSub topic."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/pubsub",
+      "launchStage": "GA"
+    },
+    {
+      "type": "slack",
+      "displayName": "Slack",
+      "description": "A channel that sends notifications to the third-party chat service [Slack](https://slack.com, \"Slack web site\").",
+      "labels": [
+        {
+          "key": "auth_token",
+          "description": "A permanent authentication token provided by Slack. This field is obfuscated by returning only a few characters of the key when fetched."
+        },
+        {
+          "key": "channel_name",
+          "description": "The Slack channel to which to post notifications."
+        },
+        {
+          "key": "team",
+          "description": "The Slack team name. This label is for output only."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/slack",
+      "launchStage": "GA"
+    },
+    {
+      "type": "sms",
+      "displayName": "SMS",
+      "description": "A channel that sends notifications via Short Message Service (SMS)",
+      "labels": [
+        {
+          "key": "number",
+          "description": "A phone number to which to send notifications."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/sms",
+      "launchStage": "GA"
+    },
+    {
+      "type": "webhook_basicauth",
+      "displayName": "Webhook with Basic Authentication",
+      "description": "A channel that sends notifications to a webhook using HTTP-standard basic authentication. Basic authentication is usually used in conjunction with SSL/TLS to reduce the risk of attackers snooping the credentials. Basic authentication is defined in [RFC2617](http://www.ietf.org/rfc/rfc2617.txt, \"RFC 2617, HTTP Authentication\").",
+      "labels": [
+        {
+          "key": "password",
+          "description": "The password. The field is obfuscated when the channel is fetched."
+        },
+        {
+          "key": "url",
+          "description": "The URL to which to publish the webhook."
+        },
+        {
+          "key": "username",
+          "description": "The username."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/webhook_basicauth",
+      "launchStage": "GA"
+    },
+    {
+      "type": "webhook_tokenauth",
+      "displayName": "Webhook with Token Authentication",
+      "description": "A channel that sends notifications to a webhook using token authentication. Token authentication includes a shared secret as a query string parameter. Token authentication is usually used in conjunction with SSL/TLS to reduce the risk of attackers snooping the token.",
+      "labels": [
+        {
+          "key": "url",
+          "description": "The URL to which to publish the webhook."
+        }
+      ],
+      "name": "projects/ditie-cloud-laboratorio/notificationChannelDescriptors/webhook_tokenauth",
+      "launchStage": "GA"
+    }
+  ]
+}
