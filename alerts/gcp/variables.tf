@@ -19,7 +19,7 @@ variable "notification_channel_type" {
     "webhook_basicauth",
     "webhook_tokenauth"
   ], var.notification_channel_type)
-    error_message = "O tipo de canal esta invalido, verifique a documentação oficial:\n- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel"
+    error_message = "O tipo de canal esta invalido, verifique a documentação oficial:\n- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel."
   }
 }
 variable "notification_channel_emails" {
@@ -51,7 +51,7 @@ variable "combiner" {
 
   validation {
     condition = contains(["AND", "OR", "AND_WITH_MATCHING_RESOURCE"], var.combiner)
-    error_message = "Forneça um combinador valido. (AND, OR ou AND_WITH_MATCHING_RESOURCE)"
+    error_message = "Forneça um combinador valido. (AND, OR ou AND_WITH_MATCHING_RESOURCE)."
   }
 }
 variable "enabled" {
@@ -76,7 +76,7 @@ variable "condition_comparison" {
 
   validation {
     condition = startswith(var.condition_comparison, "COMPARISON_")
-    error_message = "O campo precisa começar com 'COMPARISON_'"
+    error_message = "O campo precisa começar com 'COMPARISON_'."
   }
 }
 variable "condition_threshold" {
@@ -94,7 +94,7 @@ variable "aggregation_series_aligner" {
 
   validation {
     condition = startswith(var.aggregation_series_aligner, "ALIGN_")
-    error_message = "O campo precisa começar com 'ALIGN_'"
+    error_message = "O campo precisa começar com 'ALIGN_'."
   }
 }
 variable "documentation" {
