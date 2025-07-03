@@ -106,6 +106,7 @@ variable "aggregation_period" {
 variable "aggregation_series_aligner" {
   type        = string
   description = "A abordagem a ser usada para alinhar séries temporais individuais. Nem todas as funções de alinhamento podem ser aplicadas a todas as séries temporais, dependendo do tipo de métrica e do tipo de valor da série temporal original."
+  default = null
 }
 variable "documentation" {
   type = string
