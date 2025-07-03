@@ -19,7 +19,7 @@ variable "notification_channel_type" {
     "webhook_basicauth",
     "webhook_tokenauth"
   ], var.notification_channel_type)
-    error_message = "O tipo de canal esta invalido, verifique a documentação oficial:\n- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel"
+    error_message = "O tipo de canal esta invalido, verifique a documentação oficial:\n- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel."
   }
 }
 variable "notification_channel_emails" {
@@ -51,7 +51,7 @@ variable "combiner" {
 
   validation {
     condition = contains(["AND", "OR", "AND_WITH_MATCHING_RESOURCE"], var.combiner)
-    error_message = "Forneça um combinador valido. (AND, OR ou AND_WITH_MATCHING_RESOURCE)"
+    error_message = "Forneça um combinador valido. (AND, OR ou AND_WITH_MATCHING_RESOURCE)."
   }
 }
 variable "enabled" {
@@ -92,7 +92,6 @@ variable "condition_comparison" {
   type        = string
   description = "The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value)."
   default     = null
-
 }
 variable "condition_threshold" {
   type        = number
@@ -107,7 +106,6 @@ variable "aggregation_period" {
 variable "aggregation_series_aligner" {
   type        = string
   description = "A abordagem a ser usada para alinhar séries temporais individuais. Nem todas as funções de alinhamento podem ser aplicadas a todas as séries temporais, dependendo do tipo de métrica e do tipo de valor da série temporal original."
-  default     = null
 }
 variable "documentation" {
   type = string
@@ -133,7 +131,6 @@ variable "alert_notification_prompt" {
   description = "Quando eu quero receber as notificacoes do alarme"
   default = ["OPENED"]
 }
-
 #MQL
 variable "mql_query" {
   type        = string
