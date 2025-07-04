@@ -18,14 +18,11 @@ Módulo de infraestrutura como código (IAC) para provisionamento de Alertas no 
 
 ```hcl
 module "alerts_builder" {
-  source = "github.com/Grupo-Jacto/iac/alerts/gcp?ref=v1.0.0"
+  source = "github.com/Grupo-Jacto/iac/alerts/gcp/alert?ref=v1.0.0"
 
   project_id = "<PROJECT_ID>"
   
   enabled = true
-
-  notification_channel_type = "email"
-  notification_channel_emails = ["xpto@gmail.com", "xpto2@gmail.com"]
 
   enable_builder = true
   alert_name = "My Custom Alert"
@@ -47,14 +44,11 @@ module "alerts_builder" {
 
 ```hcl
 module "alerts_mql" {
-  source = "github.com/Grupo-Jacto/iac/alerts/gcp?ref=v1.0.0"
+  source = "github.com/Grupo-Jacto/iac/alerts/gcp/alert?ref=v1.0.0"
 
   project_id = "<PROJECT_ID>"
   
   enabled = true
-
-  notification_channel_type = "email"
-  notification_channel_emails = ["xpto@gmail.com", "xpto2@gmail.com"]
 
   enable_mql = true
   mql_query = <<EOT
@@ -76,14 +70,11 @@ module "alerts_mql" {
 
 ```hcl
 module "alerts_promql" {
-  source = "github.com/Grupo-Jacto/iac/alerts/gcp?ref=v1.0.0"
+  source = "github.com/Grupo-Jacto/iac/alerts/gcp/alert?ref=v1.0.0"
 
   project_id = "<PROJECT_ID>"
   
   enabled = true
-
-  notification_channel_type = "email"
-  notification_channel_emails = ["xpto@gmail.com", "xpto2@gmail.com"]
 
   enable_promql = true
   promql_query = <<EOT
@@ -109,8 +100,6 @@ module "alerts_promql" {
 | Name | Type |
 |------|------|
 | [google_monitoring_alert_policy.custom_alerts](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_alert_policy) | resource |
-| [google_monitoring_notification_channel.email](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel) | resource |
-| [google_monitoring_notification_channel.other](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/monitoring_notification_channel) | resource |
 
 ## Inputs
 
@@ -136,9 +125,7 @@ module "alerts_promql" {
 | mql\_duration | Duração da consulta MQL | `string` | `null` | no |
 | mql\_evaluation\_interval | Intervalo de avaliação da consulta MQL | `string` | `null` | no |
 | mql\_query | Consulta MQL para o alerta | `string` | `null` | no |
-| notification\_channel\_emails | Lista de emails para notificação (usado apenas se notification\_channel\_type == 'email') | `list(string)` | `[]` | no |
-| notification\_channel\_labels | Mapa de labels para outros tipos de canal (ex: slack, google\_chat, etc) | `map(string)` | `{}` | no |
-| notification\_channel\_type | Tipo de notificação do canal. https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list | `string` | n/a | yes |
+| notification\_channel | Lista de IDs dos canais de notificação associados à política de alerta | `list(string)` | `[]` | no |
 | project\_id | ID do projeto no Google Cloud | `string` | n/a | yes |
 | promql\_alert\_rule | Regra de alerta para a consulta PromQL | `string` | `null` | no |
 | promql\_duration | Duração da consulta PromQL | `string` | `null` | no |
@@ -154,8 +141,3 @@ module "alerts_promql" {
 | alert\_policy\_name | Nome da política de alerta criada |
 | alert\_policy\_notification\_channels | Canais de notificação associados à política de alerta |
 | alert\_policy\_reason | Razões do alerta de notificação |
-| notification\_channel\_email\_ids | IDs dos canais de notificação de email criados |
-| notification\_channel\_email\_names | Nome dos canais de notificação de email criados |
-| notification\_channel\_other\_id | ID do canal de notificação criado para outros tipos |
-| notification\_channel\_other\_name | Nome do canal de notificação criado para outros tipos |
-| notification\_channel\_other\_type | Tipo do canal de notificação criado para outros tipos |
