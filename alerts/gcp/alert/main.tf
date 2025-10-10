@@ -60,6 +60,5 @@ resource "google_monitoring_alert_policy" "custom_alerts" {
 
   alert_strategy {
     auto_close             = var.alert_auto_close
-    notification_prompts   = var.alert_notification_prompt
   }
 }
